@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LessonDetails"
+    android:orientation="vertical">
+
+    <!-- Lesson Name and Number -->
+    <TextView
+        android:id="@+id/textViewLessonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lesson Name and Number"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="16dp"/>
+
+    <!-- Lesson Description -->
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lesson Description"
+        android:padding="16dp"/>
+
+    <!-- Length of Lesson -->
+    <TextView
+        android:id="@+id/textViewLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Length: 1 hour 20 min"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="16dp"/>
+
+    <!-- WATCH LESSON Button -->
+    <Button
+        android:id="@+id/buttonWatchLesson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WATCH LESSON"
+        android:layout_margin="16dp"
+        android:onClick="watchLesson"/>
+
+    <!-- WebView Placeholder -->
+    <WebView
+        android:id="@+id/webViewLesson"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"/>
+
+    <!-- MARK COMPLETE Button -->
+    <Button
+        android:id="@+id/buttonMarkComplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MARK COMPLETE"
+        android:layout_margin="16dp"
+        android:onClick="markComplete"/>
+
+</LinearLayout>
