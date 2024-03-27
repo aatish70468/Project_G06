@@ -2,11 +2,7 @@ package com.example.project_g06
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.project_g06.databinding.ActivityMainBinding
 import com.example.project_g06.databinding.ActivityWelcomeBackScreenBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -38,6 +34,10 @@ class WelcomeBackScreen : AppCompatActivity() {
 
             binding.btnDeleteAccount.setOnClickListener {
                 //Delete account from shared preference
+                val get_sharedPreference = getSharedPreferences("STUDENT_DETAILS", MODE_PRIVATE)
+                get_sharedPreference.edit().clear().apply()
+                val mainPageIntent = Intent(this@WelcomeBackScreen, MainActivity::class.java)
+                startActivity(mainPageIntent)
             }
         }
     }
