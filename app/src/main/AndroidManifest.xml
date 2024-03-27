@@ -19,6 +19,9 @@
             android:name=".WelcomeBackScreen"
             android:exported="false" />
         <activity
+            android:name=".LessonDetails"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
