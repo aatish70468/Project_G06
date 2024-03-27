@@ -38,7 +38,18 @@ class lessonlistadapter(private val lessonListData: List<lessonList>, var sendLe
         holder.LessonLength.text = Lesson.lessonLength
         holder.Checkmark.visibility = if (Lesson.checkmark) View.VISIBLE else View.GONE
 
-        holder.lessonNum.setBackgroundResource(R.drawable.number1)
+
+        if(Lesson.lessonNum == 1){
+            holder.lessonNum.setBackgroundResource(R.drawable.number1)
+        }else if(Lesson.lessonNum == 2){
+            holder.lessonNum.setBackgroundResource(R.drawable.number2)
+        }else if(Lesson.lessonNum == 3){
+            holder.lessonNum.setBackgroundResource(R.drawable.number3)
+        }else if(Lesson.lessonNum == 4){
+            holder.lessonNum.setBackgroundResource(R.drawable.number4)
+        }else if(Lesson.lessonNum == 5){
+            holder.lessonNum.setBackgroundResource(R.drawable.number5)
+        }
 
         holder.LessonBtn.setOnClickListener{
             sendLessonDeatils(Lesson)

@@ -2,11 +2,7 @@ package com.example.project_g06
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.project_g06.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -40,12 +36,14 @@ class MainActivity : AppCompatActivity() {
             val studentName = binding.etStudentName.text.toString()
 
             if (studentName == "") {
-                val snackbar_fieldEmpty = Snackbar.make(binding.root, "Please, Enter your name...", Snackbar.LENGTH_LONG)
+                val snackbar_fieldEmpty =
+                    Snackbar.make(binding.root, "Please, Enter your name...", Snackbar.LENGTH_LONG)
                 snackbar_fieldEmpty.show()
                 return@setOnClickListener
             } else {
 
-                val welcomeBackScreenIntent = Intent(this@MainActivity, WelcomeBackScreen::class.java)
+                val welcomeBackScreenIntent =
+                    Intent(this@MainActivity, WelcomeBackScreen::class.java)
 
                 //Putting student name in sharedPreference
                 val putStuName = get_sharedPreference.edit()
