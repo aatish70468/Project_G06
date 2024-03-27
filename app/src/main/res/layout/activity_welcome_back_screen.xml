@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeBackScreen"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_display_stuName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back, Name"
+        android:textSize="24sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="85dp" />
+
+    <TextView
+        android:id="@+id/tv_course_completed_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="You have completed 0% of your course"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp" />
+
+    <TextView
+        android:id="@+id/tv_number_lesson_completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Lessons Completed: 0"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp" />
+
+    <TextView
+        android:id="@+id/tv_number_lesson_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Lessons Remaining: 0"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp" />
+
+    <Button
+        android:id="@+id/btn_screen_lesson_list"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"/>
+
+    <Button
+        android:id="@+id/btn_delete_account"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Delete All Data and Reset"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"/>
+
+</LinearLayout>
