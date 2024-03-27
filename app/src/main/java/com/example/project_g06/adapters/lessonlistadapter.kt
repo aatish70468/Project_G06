@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project_g06.R
 import com.example.project_g06.models.lessonList
 
-class lessonlistadapter(private val lessonListData: List<lessonList>) :
+class lessonlistadapter(private val lessonListData: List<lessonList>, var sendLessonDeatils: (lessonList) -> Unit ) :
     RecyclerView.Adapter<lessonlistadapter.LessonListViewHolder>() {
 
     class LessonListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -17,6 +18,7 @@ class lessonlistadapter(private val lessonListData: List<lessonList>) :
         val LessonName: TextView = itemView.findViewById(R.id.tv1)
         val LessonLength: TextView = itemView.findViewById(R.id.tv2)
         val Checkmark: ImageView = itemView.findViewById(R.id.checkmark)
+        val LessonBtn: LinearLayout = itemView.findViewById(R.id.lessonBtn)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonListViewHolder{
@@ -37,5 +39,9 @@ class lessonlistadapter(private val lessonListData: List<lessonList>) :
         holder.Checkmark.visibility = if (Lesson.checkmark) View.VISIBLE else View.GONE
 
         holder.lessonNum.setBackgroundResource(R.drawable.number1)
+
+        holder.LessonBtn.setOnClickListener{
+            sendLessonDeatils(Lesson)
+        }
     }
 }

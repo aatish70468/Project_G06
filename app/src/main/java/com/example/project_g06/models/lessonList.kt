@@ -1,6 +1,8 @@
 package com.example.project_g06.models
 
-class lessonList {
+import java.io.Serializable
+
+class lessonList: Serializable {
     var lessonNum: Int
     var lessonName: String
     var lessonLength: String

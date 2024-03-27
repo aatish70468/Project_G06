@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 putStuName.putString("stuName", studentName)
                 putStuName.apply()
 
-                welcomeBackScreenIntent.putExtra("Extra_stuName", getStuName)
+                welcomeBackScreenIntent.putExtra("Extra_stuName", studentName)
                 startActivity(welcomeBackScreenIntent)
             }
         }

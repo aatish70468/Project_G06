@@ -32,8 +32,8 @@ class WelcomeBackScreen : AppCompatActivity() {
             binding.tvDisplayStuName.text = "Welcome Back, ${getStuName}"
 
             binding.btnScreenLessonList.setOnClickListener {
-//                val lessonListIntent = Intent(this@WelcomeBackScreen, LessonListScreen::class.java)
-//                startActivity(lessonListIntent)
+                val lessonListIntent = Intent(this@WelcomeBackScreen, LessonListScreen::class.java)
+                startActivity(lessonListIntent)
             }
 
             binding.btnDeleteAccount.setOnClickListener {
