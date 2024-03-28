@@ -42,8 +42,8 @@ class WelcomeBackScreen : AppCompatActivity() {
                 lessonCompletedList.addAll(gson.fromJson(getCompletedLessonList, type))
             }
 
-            //setting student name by getting name from MainActivity Screen
-            val getStuName = intent.getStringExtra("Extra_stuName")
+            //setting student name through sharedPreference
+            val getStuName = get_sharedPreference.getString("stuName", "")
             binding.tvDisplayStuName.text = "Welcome Back, ${getStuName}"
 
             //setting completed lesson in form of percentage and numbers
