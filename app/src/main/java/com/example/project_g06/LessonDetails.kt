@@ -23,12 +23,16 @@ class LessonDetails : AppCompatActivity() {
 
         val checkvalue: MutableList<Boolean> = mutableListOf(false, false, false, false, false)
 
+        //if there is no intent then snackber will display
         if (intent == null) {
             val snackbar = Snackbar.make(binding.root, "ERROR: No Intent Found", Snackbar.LENGTH_LONG)
             snackbar.show()
         } else {
 
+            //getting value from intent
             val lesson = intent.getSerializableExtra("Extra_lesson") as lessonList
+
+            //sharePreference variable
             sharedPreferences = getSharedPreferences("STUDENT_DETAILS", Context.MODE_PRIVATE)
 
             val get_position = sharedPreferences.getInt("LessonPosition", 0)
@@ -39,11 +43,13 @@ class LessonDetails : AppCompatActivity() {
 
             if (get_position != 0) {
                 if (getCompletedLessonList != "") {
+                    //clearing and updating thee mutableList by getting value from sharedPreference
                     checkvalue.clear()
                     checkvalue.addAll(gson.fromJson(getCompletedLessonList, type))
                 }
             }
 
+            //code to displaying the text and onClick buttons
             binding.textViewLessonName.text = "${lesson.lessonName} - Lesson ${lesson.lessonNum}"
             binding.textViewDescription.text = lesson.description
             binding.textViewLength.text = "Length: ${lesson.lessonLength}"
