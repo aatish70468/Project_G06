@@ -38,7 +38,7 @@ class lessonlistadapter(private val lessonListData: List<lessonList>, var sendLe
         holder.LessonLength.text = Lesson.lessonLength
         holder.Checkmark.visibility = if (Lesson.checkmark) View.VISIBLE else View.GONE
 
-
+        //Running for loop to put the image view number in a series
         if(Lesson.lessonNum == 1){
             holder.lessonNum.setBackgroundResource(R.drawable.number1)
         }else if(Lesson.lessonNum == 2){

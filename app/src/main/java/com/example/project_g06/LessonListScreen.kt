@@ -16,11 +16,11 @@ class LessonListScreen : AppCompatActivity() {
     lateinit var binding: ActivityLessonListScreenBinding
 
     val lessonList: MutableList<lessonList> = mutableListOf(
-        lessonList(1, "Kotlin Basics", "2 hours",false , "https://youtu.be/xT8oP0wy-A0?si=nJiubv5RrcQzgjFQ", "Learn the fundamentals of Kotlin programming language."),
-        lessonList(2, "Advanced Kotlin Features", "3 hours", false, "https://youtu.be/bDlZeOhZnEE?si=CRRR0zINuXGJGLnx", "Explore advanced features and concepts in Kotlin."),
-        lessonList(3, "Android App Development with Kotlin", "4 hours 30 minutes", false, "https://youtu.be/XLt_moCoauw?si=V1kVehJd_2aIqfVh", "Build Android apps using Kotlin programming language."),
-        lessonList(4, "Kotlin for Server-Side Development", "2 hours 30 minutes", false, "https://youtu.be/5KhJobIbOEQ?si=i8UCd3FK_rnW5Rim", "Learn how to use Kotlin for server-side development."),
-        lessonList(5, "Kotlin for Web Development", "3 hours", false, "https://youtu.be/P6NvySn7vt8?si=JUdcJUnT14mLHseD", "Discover how Kotlin can be used for web development projects.")
+        lessonList(1, "Kotlin Basics", "Length: 2 hours",false , "https://youtu.be/xT8oP0wy-A0?si=nJiubv5RrcQzgjFQ", "Learn the fundamentals of Kotlin programming language."),
+        lessonList(2, "Advanced Kotlin Features", "Length: 3 hours", false, "https://youtu.be/bDlZeOhZnEE?si=CRRR0zINuXGJGLnx", "Explore advanced features and concepts in Kotlin."),
+        lessonList(3, "Android App Development with Kotlin", "Length: 4 hours 30 minutes", false, "https://youtu.be/XLt_moCoauw?si=V1kVehJd_2aIqfVh", "Build Android apps using Kotlin programming language."),
+        lessonList(4, "Kotlin for Server-Side Development", "Length: 2 hours 30 minutes", false, "https://youtu.be/5KhJobIbOEQ?si=i8UCd3FK_rnW5Rim", "Learn how to use Kotlin for server-side development."),
+        lessonList(5, "Kotlin for Web Development", "Length: 3 hours", false, "https://youtu.be/P6NvySn7vt8?si=JUdcJUnT14mLHseD", "Discover how Kotlin can be used for web development projects.")
     )
     lateinit var listadapter: lessonlistadapter
     var lessonItemOnClick = { lessonlistClass: lessonList ->
@@ -48,6 +48,7 @@ class LessonListScreen : AppCompatActivity() {
 
         val type = object : TypeToken<MutableList<Boolean>>() {}.type
 
+        //To checkmark completed lesson
         if (get_position != 0) {
             if (getCompletedLessonList != "") {
                 val gson = Gson()

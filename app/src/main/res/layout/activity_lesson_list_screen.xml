@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:padding="18dp"
-        android:text="Learning HTML and CSS"
+        android:text="Programming with Kotlin"
         android:textSize="24sp"
         />
 
