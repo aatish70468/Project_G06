@@ -1,19 +1,12 @@
 package com.example.project_g06
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.project_g06.adapters.lessonlistadapter
 import com.example.project_g06.databinding.ActivityLessonListScreenBinding
-import com.example.project_g06.databinding.ActivityMainBinding
 import com.example.project_g06.models.lessonList
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -45,27 +38,29 @@ class LessonListScreen : AppCompatActivity() {
         listadapter = lessonlistadapter(lessonList, lessonItemOnClick)
 
         //UpdateSharedPreference
-        var getvalue: MutableList<Boolean> = mutableListOf(false, false, false, false, false)
+        val getvalue: MutableList<Boolean> = mutableListOf(false, false, false, false, false)
         var getCurrLesson: lessonList
 
         val get_sharedPreference = getSharedPreferences("STUDENT_DETAILS", MODE_PRIVATE)
-        var get_position = get_sharedPreference.getInt("LessonPosition", 0)
+        val get_position = get_sharedPreference.getInt("LessonPosition", 0)
 
-        var getCompletedLessonList = get_sharedPreference.getString("LessonCompletedList", "")
+        val getCompletedLessonList = get_sharedPreference.getString("LessonCompletedList", "")
 
-        var gson = Gson()
         val type = object : TypeToken<MutableList<Boolean>>() {}.type
 
         if (get_position != 0) {
             if (getCompletedLessonList != "") {
-                getvalue.replaceAll(gson.fromJson(getCompletedLessonList, type))
+                val gson = Gson()
+
+                getvalue.clear()
+                getvalue.addAll(gson.fromJson(getCompletedLessonList, type))
 
                 for ((index, currStatus) in getvalue.withIndex()){
                     getCurrLesson = lessonList.get(index)
 
                     getCurrLesson.checkmark = currStatus
                 }
-                Log.d("array list",getvalue.toString())
+
             }
         }
 
