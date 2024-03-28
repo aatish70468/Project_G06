@@ -49,9 +49,8 @@
     <WebView
         android:id="@+id/webViewLesson"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:visibility="gone"/>
+        android:layout_height="400dp"
+        android:layout_weight="1"/>
 
     <!-- MARK COMPLETE Button -->
     <Button

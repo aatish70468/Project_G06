@@ -1,12 +1,19 @@
 package com.example.project_g06
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.project_g06.adapters.lessonlistadapter
 import com.example.project_g06.databinding.ActivityLessonListScreenBinding
+import com.example.project_g06.databinding.ActivityMainBinding
 import com.example.project_g06.models.lessonList
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -14,19 +21,19 @@ import com.google.gson.reflect.TypeToken
 class LessonListScreen : AppCompatActivity() {
 
     lateinit var binding: ActivityLessonListScreenBinding
-    var lessonList: MutableList<lessonList> = mutableListOf(
-        lessonList(1, "Introduction to the course", "Length: 1hr 20min", false),
-        lessonList(2, "Introduction to the course", "Length: 1hr 20min", false),
-        lessonList(3, "Introduction to the course", "Length: 1hr 20min", false),
-        lessonList(4, "Introduction to the course", "Length: 1hr 20min", false),
-        lessonList(5, "Introduction to the course", "Length: 1hr 20min", false)
-    )
 
+    val lessonList: MutableList<lessonList> = mutableListOf(
+        lessonList(1, "Kotlin Basics", "2 hours",false , "https://youtu.be/xT8oP0wy-A0?si=nJiubv5RrcQzgjFQ", "Learn the fundamentals of Kotlin programming language."),
+        lessonList(2, "Advanced Kotlin Features", "3 hours", false, "https://youtu.be/bDlZeOhZnEE?si=CRRR0zINuXGJGLnx", "Explore advanced features and concepts in Kotlin."),
+        lessonList(3, "Android App Development with Kotlin", "4 hours 30 minutes", false, "https://youtu.be/XLt_moCoauw?si=V1kVehJd_2aIqfVh", "Build Android apps using Kotlin programming language."),
+        lessonList(4, "Kotlin for Server-Side Development", "2 hours 30 minutes", false, "https://youtu.be/5KhJobIbOEQ?si=i8UCd3FK_rnW5Rim", "Learn how to use Kotlin for server-side development."),
+        lessonList(5, "Kotlin for Web Development", "3 hours", false, "https://youtu.be/P6NvySn7vt8?si=JUdcJUnT14mLHseD", "Discover how Kotlin can be used for web development projects.")
+    )
     lateinit var listadapter: lessonlistadapter
     var lessonItemOnClick = { lessonlistClass: lessonList ->
 
         val intent = Intent(this@LessonListScreen, LessonDetails::class.java)
-//        intent.putExtra("Extra_lesson", lessonlistClass)
+        intent.putExtra("Extra_lesson", lessonlistClass)
         startActivity(intent)
     }
 
@@ -53,15 +60,14 @@ class LessonListScreen : AppCompatActivity() {
             if (getCompletedLessonList != "") {
                 getvalue.replaceAll(gson.fromJson(getCompletedLessonList, type))
 
-
                 for ((index, currStatus) in getvalue.withIndex()){
                     getCurrLesson = lessonList.get(index)
 
                     getCurrLesson.checkmark = currStatus
                 }
+                Log.d("array list",getvalue.toString())
             }
         }
-
 
         binding.listView.adapter = listadapter
         binding.listView.layoutManager = LinearLayoutManager(this)

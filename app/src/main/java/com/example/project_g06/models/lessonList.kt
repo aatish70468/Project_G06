@@ -7,11 +7,22 @@ class lessonList: Serializable {
     var lessonName: String
     var lessonLength: String
     var checkmark: Boolean
+    var lessonVideo: String
+    var description: String
 
-    constructor(lessonNum: Int, lessonName: String, lessonLength: String, checkmark: Boolean) {
+    constructor(
+        lessonNum: Int,
+        lessonName: String,
+        lessonLength: String,
+        checkmark: Boolean,
+        lessonVideo: String,
+        description: String
+    ) {
         this.lessonNum = lessonNum
         this.lessonName = lessonName
         this.lessonLength = lessonLength
         this.checkmark = checkmark
+        this.lessonVideo = lessonVideo
+        this.description = description
     }
 }
